@@ -1,15 +1,33 @@
 var Enumeration = function() {}
 
+const ourForEach = function(array, callback) {
+  for(let item of array){
+    result = callback(item)
+  }
+  return result;
+
+}
+
 Enumeration.prototype.find = function(array, callback) {
   // code here that makes the test pass!
-
-  for(let item of array) {
+  let result = ourForEach(array, function(item) {
     const isItem = callback(item);
 
-    if(isItem) {
-      return item;
-    }
-  }
+      if(isItem) {
+        return item;
+      }
+  });
+  return result;
+
+
+
+  // for(let item of array) {
+  //   const isItem = callback(item);
+  //
+  //   if(isItem) {
+  //     return item;
+  //   }
+  // }
 }
 
 Enumeration.prototype.map = function(array, callback) {
